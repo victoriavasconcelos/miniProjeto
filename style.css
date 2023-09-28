@@ -1,28 +1,169 @@
-#forms{
-    background-color: aqua;
-    margin: 10px;
-    padding: 10px;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
 
-}
-
-#forms form {
-    display: flex;
-    flex-direction: column;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; 
+    background-color: #0c0ce94d;
 }
 
+
+
+#forms{
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+#forms form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 15px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.formHeader {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-around;
+    
+  }
+
+.cadastros {
+    display: flex;
+    align-items: center;
+}
+
+.cadastros button {
+    border: none;
+    background-color: #6c63ff;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cadastros button:hover {
+    background-color: #0c0ce94d;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+}
+
+.formHeader h1::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    background-color: #6c63ff;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+  
+}
+
+.labels input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 0.8rem;
+}
+
+.labels input:hover {
+    background-color: #eeeeee75;
+}
+
+.labels input:focus-visible {
+    outline: 1px solid #6c63ff;
+}
+
+.labels label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #000000c0;
+}
+
+.labels input::placeholder {
+    color: #000000be;
+}
+
+.botaoConfirmar button {
+    width: 100%;
+    margin-top: 2.5rem;
+    border: none;
+    background-color: #6c63ff;
+    padding: 0.62rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoConfirmar button:hover {
+    background-color: #0c0ce94d;
+}
+
+.botaoConfirmar button a {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+
+@media screen and (max-width: 1330px) {
+
+    .container {
+      width: 50%;
+    }
+  
+    .form {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 1064px) {
+  
+    .input-group {
+      flex-direction: column;
+      z-index: 5;
+      padding-right: 5rem;
+      max-height: 10rem;
+      overflow-y: scroll;
+      flex-wrap: nowrap;
+    }
+}
+
+  
