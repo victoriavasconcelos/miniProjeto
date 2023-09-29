@@ -49,8 +49,8 @@ function mostrarCadastros (){
     usuariosCadastrados.forEach((usuario, index) => {
         lista += `<li> ${usuario.nome} ${usuario.email} 
         <button onclick="deletarCadastro(${index})">Deletar</button>
-        <button id = "botaoEditar" onclick ="editarUsuario(${index}, ${index})">Editar</button></li>`;
-    });
+        <button id = "botaoEditar" onclick ="editarUsuario(${index})">Editar</button></li>`;
+    }); 
     lista += "</ul>"
     document.getElementById("mostrarUsers").innerHTML = lista
 }
@@ -69,6 +69,7 @@ function editarUsuario(index) {
 
     const styleDisplay = nomeEdit.style.display;
     if (styleDisplay === "none" || styleDisplay === "") {
+        console.log("llaala")
         nomeEdit.style.display = "inline-block";
         labelNome.style.display = "inline-block";
         emailEdit.style.display = "inline-block";
