@@ -47,7 +47,7 @@ function mostrarCadastros (){
     }
     let lista = "<ul>"
     usuariosCadastrados.forEach((usuario, index) => {
-        lista += `<li> ${usuario.nome} ${usuario.email} 
+        lista += `<li> <p>${usuario.nome}</p> <p>${usuario.email}</p> 
         <button onclick="deletarCadastro(${index})">Deletar</button>
         <button id = "botaoEditar" onclick ="editarUsuario(${index})">Editar</button></li>`;
     }); 
@@ -66,7 +66,7 @@ function editarUsuario(index) {
     const botaoSalvar = document.getElementById("botaoSalvar");
 
     indiceAtual = index;
-
+    console.log(nomeEdit)
     const styleDisplay = nomeEdit.style.display;
     if (styleDisplay === "none" || styleDisplay === "") {
         console.log("llaala")
@@ -107,7 +107,7 @@ function salvarEdicao() {
         if (usuariosCadastrados) {
             const usuarioEditado = new Usuario(nomeEdit, emailEdit, senhaEdit);
             usuariosCadastrados[indiceAtual] = usuarioEditado;
-            
+            console.log(usuariosCadastrados)
             localStorage.setItem("cadastros", JSON.stringify(usuariosCadastrados));
 
             mostrarCadastros();
@@ -115,8 +115,7 @@ function salvarEdicao() {
             document.getElementById("campoNomeEdit").value = "";
             document.getElementById("campoEmailEdit").value = "";
             document.getElementById("campoSenhaEdit").value = "";
-            console.log(history.state)
-            history.back();
+            
         }
     } else {
         alert("Preencha todos os campos para salvar a edição.");

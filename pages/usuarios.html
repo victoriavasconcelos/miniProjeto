@@ -5,21 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="usuarios.css">
-    <title>Document</title>
+    <title>Usuarios</title>
 </head>
 <body>
-    <div id="mostrarUsers"></div>
-    <form id="editarUser">
-        <label for="campoNomeEdit" id="labelCampoNome" style="display: none;">Novo Nome:</label>
-        <input type="text" id="campoNomeEdit" style="display: none;">
-        <label for="campoEmailEdit" id="labelCampoEmail" style="display: none;">Novo Email:</label>
-        <input type="text" id="campoEmailEdit" style="display: none;">
-        <label for="campoSenhaEdit" id="labelCampoSenha" style="display: none;">Nova Senha:</label>
-        <input type="password" id="campoSenhaEdit" style="display: none;">
-        <button onclick="salvarEdicao()" id="botaoSalvar" style="display: none;">Salvar Edição</button>
-    </form>
+    <div id="user">
+        <div id="mostrarUsers"> </div>
+        <form>
+            <div class="inputs">
+                <label for="campoNomeEdit" id="labelCampoNome" style="display: none;">Novo Nome:</label>
+                <input type="text" id="campoNomeEdit" style="display: none;">
+            </div>
+            <div class="inputs">
+                <label for="campoEmailEdit" id="labelCampoEmail" style="display: none;">Novo Email:</label>
+                <input type="text" id="campoEmailEdit" style="display: none;">
+            </div>
+            <div class="inputs">
+                <label for="campoSenhaEdit" id="labelCampoSenha" style="display: none;">Nova Senha:</label>
+                <input type="password" id="campoSenhaEdit" style="display: none;">
+            </div>
+            
+            <button onclick="salvarEdicao()" id="botaoSalvar" style="display: none;">Salvar Edição</button>
+        </form>
+    </div>
+   
     
-    
-<script src="../script.js">  </script>
+    <script src="../script.js"></script>
 </body>
 </html>
