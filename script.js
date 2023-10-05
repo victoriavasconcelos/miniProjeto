@@ -6,7 +6,7 @@ class Usuario {
     }
 }
 
-const usuarios = []
+let usuarios = []
 
 var indiceAtual = -1
 
@@ -16,6 +16,8 @@ function adicionarUsuario (){
     const senha = document.getElementById("campoSenha").value
     if(nome && email && senha){
         const novoUsuario = new Usuario(nome, email, senha)
+        usuarios = JSON.parse(localStorage.getItem("cadastros"))
+        console.log(usuarios)
         usuarios.push(novoUsuario)
         localStorage.setItem("cadastros", JSON.stringify(usuarios))
         document.getElementById("campoNome").value=""
@@ -47,37 +49,30 @@ function mostrarCadastros (){
     }
     let lista = "<ul>"
     usuariosCadastrados.forEach((usuario, index) => {
-        lista += `<li> <p>${usuario.nome}</p> <p>${usuario.email}</p> 
-        <button onclick="deletarCadastro(${index})">Deletar</button>
+        lista += `<li id = "exibirCadastros"> <p id ="usuarioNome">${usuario.nome}</p> <p id = "usuarioEmail">${usuario.email}</p> 
+        <button id = "botaoDeletar" onclick="deletarCadastro(${index})">Deletar</button>
         <button id = "botaoEditar" onclick ="editarUsuario(${index})">Editar</button></li>`;
     }); 
     lista += "</ul>"
+    console.log(document.getElementById("mostrarUsers"))
     document.getElementById("mostrarUsers").innerHTML = lista
 }
 
 function editarUsuario(index) {
     const nomeEdit = document.getElementById("campoNomeEdit");
-    const labelNome = document.getElementById("labelCampoNome");
     const emailEdit = document.getElementById("campoEmailEdit");
-    const labelEmail = document.getElementById("labelCampoEmail");
     const senhaEdit = document.getElementById("campoSenhaEdit");
-    const labelSenha = document.getElementById("labelCampoSenha");
-    const botaoEditar = document.getElementById("botaoEditar");
-    const botaoSalvar = document.getElementById("botaoSalvar");
+    const form = document.getElementById("formsEdit")
+    const users = document.getElementById("mostrarUsers")
+    
 
     indiceAtual = index;
     console.log(nomeEdit)
-    const styleDisplay = nomeEdit.style.display;
+    const styleDisplay = form.style.display;
     if (styleDisplay === "none" || styleDisplay === "") {
-        console.log("llaala")
-        nomeEdit.style.display = "inline-block";
-        labelNome.style.display = "inline-block";
-        emailEdit.style.display = "inline-block";
-        labelEmail.style.display = "inline-block";
-        senhaEdit.style.display = "inline-block";
-        labelSenha.style.display = "inline-block";
-        botaoEditar.style.display = "none";
-        botaoSalvar.style.display = "inline-block";
+        
+        form.style.display = "inline-block"
+        users.style.display = "none";
 
         const usuariosCadastrados = JSON.parse(localStorage.getItem("cadastros"));
         const usuario = usuariosCadastrados[index];
@@ -85,14 +80,8 @@ function editarUsuario(index) {
         emailEdit.value = usuario.email;
         senhaEdit.value = usuario.senha;
     } else {
-        nomeEdit.style.display = "none";
-        labelNome.style.display = "none"
-        emailEdit.style.display = "none";
-        labelEmail.style.display = "none";
-        senhaEdit.style.display = "none";
-        labelSenha.style.display = "none";
-        botaoEditar.style.display = "inline-block";
-        botaoSalvar.style.display = "none";
+        form.style.display = "none"
+        users.style.display = "inline-block";
     }
 }
 
